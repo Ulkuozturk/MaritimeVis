@@ -1,4 +1,4 @@
-var width = 700
+var width = 480
 var height = 300
 
 var svg = d3.select("#MarAcc").append("svg")
@@ -19,21 +19,18 @@ const render = data => {
         .range([0,innerWidth])
         .padding(0.2);
     
-    
+   
+
+
     const yScale = d3.scaleLinear()
         .domain([0,d3.max(data,yValue)])
         .range([innerHeight,0]);
-    console.log(data);
-
 
     const g = svg.append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`)
     
     const xAxis = d3.axisBottom(xScale)
     const yAxis = d3.axisLeft(yScale);
-
-  
-
 
     g.append("g").call(yAxis);
     g.append("g").call(xAxis)
@@ -44,15 +41,21 @@ const render = data => {
         .attr("dy", ".15em")
         .attr("transform", "rotate(-65)");
 
+    g.append("text")
+        .text("Look Out 2016!!!")
+        .attr("fill", "black")
+        .attr("transform", `translate(150,15)`)
+        .attr("id","attention")
+        .style("font-size","1em");
 
     g.selectAll('rect').data(data)
     .enter().append("rect")
     .attr("x", d => xScale(xValue(d)))
-    .attr("y", d => yScale(yValue(d)))
+    .attr("y", d => yScale(yValue(d)))      // Burdada boy 0 iken y indexini 200 yaptı ve en aşağı indi.
     .attr("width", xScale.bandwidth() )
     .attr("height", d => innerHeight-yScale(yValue(d))) // Şöyle ki boy 0 iken onu 200'e scale ettik ki en aşağıda 
-    .attr("stroke", "white");                           // başlasın. Boyu da sıfır olacağı için, artık 200 bize göre
-}                                                       // innerHeight-200 yaptık bitti.
+    .attr("stroke", "black");                           // başlasın. Boyu da sıfır olacağı için, artık 200 bize göre
+  }                                                       // innerHeight-200 yaptık bitti.
 
 
 
@@ -193,4 +196,4 @@ fetchdata= data => {
     render(data);
 }
 
-fetchdata(dataset)
+fetchdata(dataset);
