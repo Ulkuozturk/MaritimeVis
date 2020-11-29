@@ -1,2 +1,2 @@
 # MaritimeVis.github.io
-Maritime Data Visualization
+Maritime Data Visualization Trials
