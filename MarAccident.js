@@ -1,4 +1,4 @@
-var width = 500
+var width = 700
 var height = 300
 
 var svg = d3.select("#MarAcc").append("svg")
@@ -7,22 +7,21 @@ var svg = d3.select("#MarAcc").append("svg")
 
 const render = data => {
 
-    const xValue = d => d.Maritime_Accident_Total;
-    const yValue = d => d.Year;
+    const xValue = d => d.Year;
+    const yValue = d => d.Maritime_Accident_Total;
     const margin = {top:20, right:20, bottom:20, left:100}
     const innerWidth = width - margin.right - margin.left;
     const innerHeight = height - margin.top - margin.bottom;
 
-    const xScale = d3.scaleLinear()
-        .domain([0,d3.max(data,xValue)])
-        .range([0,innerWidth]);
-    
-
-
-    const yScale = d3.scaleBand()
-        .domain(data.map(yValue))
-        .range([0,innerHeight])
+    const xScale = d3.scaleBand()
+        .domain(data.map(xValue))
+        .range([0,innerWidth])
         .padding(0.2);
+    
+    
+    const yScale = d3.scaleLinear()
+        .domain([0,d3.max(data,yValue)])
+        .range([innerHeight,0]);
     console.log(data);
 
 
@@ -40,11 +39,12 @@ const render = data => {
 
     g.selectAll('rect').data(data)
     .enter().append("rect")
+    .attr("x", d => xScale(xValue(d)))
     .attr("y", d => yScale(yValue(d)))
-    .attr("width", d => xScale(xValue(d)))
-    .attr("height", yScale.bandwidth())
-    .attr("stroke", "white");
-}
+    .attr("width", xScale.bandwidth() )
+    .attr("height", d => innerHeight-yScale(yValue(d))) // Şöyle ki boy 0 iken onu 200'e scale ettik ki en aşağıda 
+    .attr("stroke", "white");                           // başlasın. Boyu da sıfır olacağı için, artık 200 bize göre
+}                                                       // innerHeight-200 yaptık bitti.
 
 
 
