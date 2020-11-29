@@ -9,7 +9,8 @@ const render = data => {
 
     const xValue = d => d.Year;
     const yValue = d => d.Maritime_Accident_Total;
-    const margin = {top:20, right:20, bottom:20, left:100}
+    const margin = {top:20, right:20, bottom:45, left:100}
+
     const innerWidth = width - margin.right - margin.left;
     const innerHeight = height - margin.top - margin.bottom;
 
@@ -28,13 +29,20 @@ const render = data => {
     const g = svg.append("g")
         .attr("transform", `translate(${margin.left}, ${margin.top})`)
     
-    const xAxis = d3.axisBottom(xScale);
+    const xAxis = d3.axisBottom(xScale)
     const yAxis = d3.axisLeft(yScale);
+
+  
+
 
     g.append("g").call(yAxis);
     g.append("g").call(xAxis)
         .attr("transform", `translate(0, ${innerHeight})`)
-
+        .selectAll("text")  
+        .style("text-anchor", "end")
+        .attr("dx", "-.8em")
+        .attr("dy", ".15em")
+        .attr("transform", "rotate(-65)");
 
 
     g.selectAll('rect').data(data)
