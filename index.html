@@ -13,20 +13,33 @@
 
     <body>
 
-        <h1> Maritime Data Analytic and Visualization Dashboard  </h1>
+        <h1 class="First_Title"> Maritime Data Analytic and Visualization Dashboard  </h1>
         <p></p>
         <p></p>
         <p></p>
 
-        <div class="container">
-            <div class="row" title="Maritime Accidents Deaths/Injured Numbers by Years in Turkey">
-                <div id="MarAcc" class="col-6">
+
+        <div class="container-fluid">
+            <div class="row" >
+                <div id="MarAcc" class="col-sm-4" title="Maritime Accidents Deaths/Injured Numbers by Years in Turkey"> </div>
+                <div  class="col-sm-2"> </div>
+                <div id="IstStraitLine" class="col-sm-4" title="Istanbul Strait Passage Numbers"> </div>
             </div>
-
-   
-    <body>
         
-        <script src="MarAccident.js"></script>
-      
+            <div class="row">
+                <div id="Piracy" class="col-sm-12" title="Global Piracy Numbers"> </div>
+
+            </div>
+         
+        </div>
+
+
     </body>
+       
+        
+    <script src="MarAccident.js"></script>
+    <script src="./js/IstStraitLine.js"></script>
+    <script src="Piracy.js"></script>
+
+  
 </html>

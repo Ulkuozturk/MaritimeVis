@@ -1,11 +1,58 @@
-rect {
-    fill: steelblue;
-  }
 
 text {
-    font-size: 1.4em;
+    font-size: 1em;
     font-style: italic;
     
   }
 
+  circle {
+    fill: steelblue;
+    opacity: 0.5;
+  }
 
+  .title {
+
+    font-size: 14pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+  }
+
+  .tick line {
+
+      stroke: rgba(170, 166, 166, 0.911);
+
+  }
+
+  .axis-label {
+
+    font-size: 12pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .First_Title {
+    
+    font-size: 24pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-stretch: extra-expanded;
+    text-align: center;
+    color: rgb(187, 55, 106);
+  }
+
+  .line-path {
+
+    fill: none;
+    stroke:   #4a6b86;
+    stroke-width: 1;
+    stroke-linejoin: round;
+  }
+
+  
+
+  .line-path2 {
+
+    fill: none;
+    stroke: #E6842A;
+    stroke-width: 1;
+    stroke-linejoin: round;
+  }
