@@ -131,7 +131,7 @@ const renderStraitLine = data => {
   }                                                       // innerHeight-200 yaptık bitti.
 
 
-  d3.csv("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/Ship%20Passage%20With%20Gross%20Ton.csv").then(Data => {
+  d3.csv("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/Data/Ship_Passage.csv").then(Data => {
     Data.forEach(d => {
         
         d.Date= new Date(d.Date);
