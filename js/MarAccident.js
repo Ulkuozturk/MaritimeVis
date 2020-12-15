@@ -69,7 +69,7 @@ const render = data => {
   }                                                       // innerHeight-200 yaptık bitti.
 
 
-d3.json("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/MarAccdata.csv").then(Data => {
+d3.json("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/Data/MarAccdata.csv").then(Data => {
   Data.forEach(d => {
       d.Maritime_Accident_Total = +d.Maritime_Accident_Total; 
   })

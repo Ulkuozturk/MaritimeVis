@@ -100,7 +100,7 @@ const renderPiracy = data => {
   }                                                       // innerHeight-200 yaptık bitti.
 
 
-  d3.csv("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/Montly_Piracy2.csv").then(Data => {
+  d3.csv("https://raw.githubusercontent.com/Ulkuozturk/MaritimeVis/main/Data/Montly_Piracy2.csv").then(Data => {
     Data.forEach(d => {
         
         d.Date= new Date(d.Date);

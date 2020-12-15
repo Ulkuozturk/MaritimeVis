@@ -51,8 +51,10 @@ text {
 
   .line-path2 {
 
-    fill: none;
+    fill: maroon;
     stroke: #E6842A;
     stroke-width: 1;
     stroke-linejoin: round;
   }
+
+
